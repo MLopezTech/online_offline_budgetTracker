@@ -1,0 +1,75 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- top of page -->
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#317EFB">
+
+  <link rel="styleheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="styleheet" href="style.css">
+
+  <link rel="manifest" href="/manifest.json">
+
+  <title>Online/Offline Budget Tracker</title>
+
+</head>
+
+<!-- protein of script -->
+
+<body>
+  <div class="wrapper">
+    <div class="total">
+      <div class="total">Total Amount: $<span id="total">0</span></div>
+    </div>
+
+    <div class="form">
+      <input type="text" id="t-name" placeholder="Name of transaction" />
+      <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
+      <button id="add-btn"><i class="fa fa-plus buttons"></i> Add on Funds</button>
+      <button id="sub-btn"><i class="fa fa-minus"></i> Deduct Funds</button>
+      <p class="error"></p>
+    </div>
+
+
+
+
+    <div class="transactions">
+      <table>
+        <thead>
+          <th>The Deal</th>
+          <th>Quantity</th>
+        </thead>
+        <tbody id="tbody">
+          
+        </tbody>
+      </table>
+    </div>
+    
+
+
+
+
+
+    <canvas id="myChart"></canvas>
+  </div>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("We found your service worker file!", reg);
+        });
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="dataBase.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
